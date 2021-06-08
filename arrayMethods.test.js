@@ -10,3 +10,14 @@ describe('arrayMap', () => {
     expect(typesArray).toEqual(expected);
   });
 });
+
+describe('arrayFilter', () => {
+  it('applies a function on each item in an array returning a new array with only items with true or truthy values', () => {
+    const array = [255, 0, 1, 'a', 'b', false, true, ''];
+    const filteredArray = arrayFilter(array, item => {
+      return item;
+    });
+    const expected = [255, 1, 'a', 'b', true, ''];
+    expect(filteredArray).toEqual(expected);
+  });
+});

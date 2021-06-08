@@ -6,4 +6,6 @@ export function arrayMap(array, callback) {
   }
   return newArray;
 }
-  
+// const array = [255, 0, 1, 'a', 'b']; 
+// const filteredArray = array.filter(item => item);
+// console.log(filteredArray);
