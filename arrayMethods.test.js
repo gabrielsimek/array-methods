@@ -53,13 +53,22 @@ describe('arrayFindIndex', () => {
 
 
 describe('arrayReduce', () => {
-  it('applies a callback to every item in an array and keeps track of and returns a specified accumulated value', () => {
+  it('applies a callback to every item in an array and keeps track of and returns a specified accumulated value initialized at zero', () => {
+    const array = [255, 5, 5, 1, 1];
+    const reducedValue = arrayReduce(array, (accumulator, item) => {
+      return accumulator += item;
+    }, 0) ;
+    
+    expect(reducedValue).toEqual(267);
+ 
+  });
+
+  it('applies a callback to every item in an array and keeps track of and returns a specified accumulated value not initialized', () => {
     const array = [255, 5, 5, 1, 1];
     const reducedValue = arrayReduce(array, (accumulator, item) => {
       return accumulator += item;
     }) ;
-    
     expect(reducedValue).toEqual(267);
- 
-  }, 0);
+  });
+
 });

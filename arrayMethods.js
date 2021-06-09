@@ -32,3 +32,4 @@ export function arrayReduce(array, callback, initialValue) {
   }
   return accumulator;
 }
+
