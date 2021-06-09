@@ -19,8 +19,6 @@ describe('arrayFilter', () => {
     });
     const expectedTruthy = [255, 1, 'a', 'b', true, {}];
     expect(filteredArrayTruthy).toEqual(expectedTruthy);
-  
-
 
   });
 
