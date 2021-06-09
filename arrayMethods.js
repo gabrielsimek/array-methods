@@ -24,7 +24,9 @@ export function arrayFindIndex(array, callback) {
 
 
 export function arrayReduce(array, callback, initialValue) {
-  if(typeof initialValue === 'number' || typeof initialValue === 'string' || initialValue === undefined){
+  if((typeof initialValue === 'number' || typeof initialValue === 'string' ||  typeof initialValue === 'object' || initialValue === undefined) && !Array.isArray(initialValue)){
+    console.log(initialValue);
+
     let accumulator;
     let i;
     if(initialValue !== undefined)  accumulator = initialValue;
@@ -39,14 +41,6 @@ export function arrayReduce(array, callback, initialValue) {
     const accumulator = initialValue;
     for(let i = 0; i < array.length; i++){
       accumulator[i] = callback(accumulator, array[i]);
-    }
-    return accumulator;
-  }
-
-  if(typeof initialValue === 'object'){
-    let accumulator = initialValue;
-    for(let i = 0; i < array.length; i++){
-      accumulator = callback(accumulator, array[i]);
     }
     return accumulator;
   }
