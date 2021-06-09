@@ -13,11 +13,24 @@ describe('arrayMap', () => {
 
 describe('arrayFilter', () => {
   it('applies a function on each item in an array returning a new array with only items with true or truthy values', () => {
-    const array = [255, 0, 1, 'a', 'b', false, true, ''];
-    const filteredArray = arrayFilter(array, item => {
+    const array = [255, 0, 1, 'a', 'b', false, true, '', null, NaN, undefined, {}];
+    const filteredArrayTruthy = arrayFilter(array, item => {
       if(item) return item;
     });
-    const expected = [255, 1, 'a', 'b', true];
-    expect(filteredArray).toEqual(expected);
+    const expectedTruthy = [255, 1, 'a', 'b', true, {}];
+    expect(filteredArrayTruthy).toEqual(expectedTruthy);
+  
+
+
+  });
+
+  it('returns a new array containing only type "string" from the original array', () => {
+    const array = ['asdf', 1, true, false, '1234', 'qwerty'];
+    const filteredByType = arrayFilter(array, item => {
+      if(typeof(item) === 'string') return item;
+    });
+    const expectedTypeArray = ['asdf', '1234', 'qwerty'];
+    expect(filteredByType).toEqual(expectedTypeArray);
+
   });
 });

@@ -14,6 +14,7 @@ export function arrayFilter(array, callback) {
   const newArray = [];
   for(let i = 0; i < array.length; i++){
     const filteredItem = callback(array[i]);
+    //length is always the last index + 1
     if(filteredItem) newArray[newArray.length] = filteredItem;
   }
   return newArray;
