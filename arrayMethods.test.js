@@ -47,7 +47,19 @@ describe('arrayFindIndex', () => {
     const typesArray = arrayFindIndex(array, item => {
       return item[0] === 'z';
     });
-
     expect(typesArray).toEqual(-1);
+  });
+});
+
+
+describe('arrayReduce', () => {
+  it('applies a callback to every item in an array and keeps track of and returns a specified accumilated value', () => {
+    const array = [255, 5, 5, 1, 1];
+    const reducedValue = arrayReduce(array, (accumulator, item) => {
+      accumulator += item;
+    }, 0) ;
+    
+    expect(reducedValue).toEqual(67);
+ 
   });
 });
