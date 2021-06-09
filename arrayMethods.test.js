@@ -15,7 +15,7 @@ describe('arrayFilter', () => {
   it('applies a function on each item in an array returning a new array with only items with true or truthy values', () => {
     const array = [255, 0, 1, 'a', 'b', false, true, '', null, NaN, undefined, {}];
     const filteredArrayTruthy = arrayFilter(array, item => {
-      if(item) return item;
+      return item;
     });
     const expectedTruthy = [255, 1, 'a', 'b', true, {}];
     expect(filteredArrayTruthy).toEqual(expectedTruthy);
@@ -36,11 +36,11 @@ describe('arrayFilter', () => {
 describe('arrayFindIndex', () => {
   it('applies a function on each element in an array which returns the index of an item that meets a specified criteria', () => {
     const array = [255, 0, 1, 'a', 'b', 'abc', 'def'];
-    const typesArray = arrayFindIndex(array, item => {
+    const aArray = arrayFindIndex(array, item => {
       if(item[0] === 'a') return item;
     });
     
-    expect(typesArray).toEqual(3);
+    expect(aArray).toEqual(3);
   });
   it('applies a function on each element in an array which returns the index of an item that meets a specified criteria or -1 if no item found', () => {
     const array = [255, 0, 1, 'a', 'b', 'abc', 'def'];
@@ -93,6 +93,15 @@ describe('arrayReduce', () => {
       return  item + accumulator;
     }, '') ;
     expect(reducedValue).toEqual('cba');
+  });
+  it('returns and object when arrayReduce is initialized as an object', () => {
+    const arrayOfNames = ['Danny', 'Ryan', 'Marty'] ;
+    
+    const reducedValue = arrayReduce(arrayOfNames, (accumulator, item) => {
+      accumulator[item] = 'teacher';
+      return accumulator;
+    }, {}) ;
+    expect(reducedValue).toEqual({ Danny: 'teacher', Ryan: 'teacher', Marty: 'teacher' });
   });
 });
 

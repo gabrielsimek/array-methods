@@ -10,7 +10,6 @@ export function arrayMap(array, callback) {
 export function arrayFilter(array, callback) {
   const newArray = [];
   for(let i = 0; i < array.length; i++){
-    //length is always the last index + 1
     if(callback(array[i])) newArray[newArray.length] = array[i];
   }
   return newArray;
@@ -43,6 +42,8 @@ export function arrayReduce(array, callback, initialValue) {
     }
     return accumulator;
   }
+
+
 }
 
 export function arrayEvery(array, callback){
@@ -51,3 +52,10 @@ export function arrayEvery(array, callback){
   }
   return true;
 }
+
+const names = ['Danny', 'Ryan', 'Marty'];
+const newObj = names.reduce((acc, item) => {
+  acc[item] = 'teacher';
+  return acc;
+}, {});
+console.log(newObj);
