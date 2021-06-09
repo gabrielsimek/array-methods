@@ -1,4 +1,4 @@
-import { arrayMap, arrayFilter, arrayFindIndex } from './arrayMethods.js';
+import { arrayMap, arrayFilter, arrayFindIndex, arrayReduce } from './arrayMethods.js';
 describe('arrayMap', () => {
   it('applies a function on each element in an array, returning a new array', () => {
     const array = [255, 0, 1, 'a', 'b'];
@@ -53,13 +53,13 @@ describe('arrayFindIndex', () => {
 
 
 describe('arrayReduce', () => {
-  it('applies a callback to every item in an array and keeps track of and returns a specified accumilated value', () => {
+  it('applies a callback to every item in an array and keeps track of and returns a specified accumulated value', () => {
     const array = [255, 5, 5, 1, 1];
     const reducedValue = arrayReduce(array, (accumulator, item) => {
-      accumulator += item;
-    }, 0) ;
+      return accumulator += item;
+    }) ;
     
-    expect(reducedValue).toEqual(67);
+    expect(reducedValue).toEqual(267);
  
-  });
+  }, 0);
 });

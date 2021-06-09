@@ -22,3 +22,13 @@ export function arrayFindIndex(array, callback) {
   }
   return -1;
 }
+export function arrayReduce(array, callback, initialValue) {
+  let accumulator;
+  let i;
+  if(initialValue !== undefined)  accumulator = initialValue;
+  else accumulator = array[0];
+  for(initialValue !== undefined ? i = 0 : i = 1; i < array.length; i++) {
+    accumulator = callback(accumulator, array[i]);
+  }
+  return accumulator;
+}
