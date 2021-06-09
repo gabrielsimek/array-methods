@@ -104,6 +104,25 @@ describe('arrayReduce', () => {
     }, {}) ;
     expect(reducedValue).toEqual({ Danny: 'teacher', Ryan: 'teacher', Marty: 'teacher' });
   });
+  it('changes array of numbers to an object with the key of the original number in array and value of the original number + 1', () => {
+    const array = [1, 2, 3, 4, 5, 6];
+    const parameters = (accumulator, item) => {
+      
+      accumulator[item] = item + 1;
+      return accumulator;
+    };
+    // const newNumber = array.reduce((acc, value) => acc + value, []);
+    const newArray = arrayReduce(array, parameters, {});
+    expect(newArray).toEqual({
+      1: 2,
+      2: 3,
+      3: 4,
+      4: 5,
+      5: 6,
+      6: 7
+    });
+  });
+
 });
 
 describe('arrayEvery', () => {

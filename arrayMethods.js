@@ -52,9 +52,9 @@ export function arrayEvery(array, callback){
 }
 
 
-// const names = ['Danny', 'Ryan', 'Marty'];
-// const newObj = names.reduce((acc, item) => {
-//   acc[item] = 'teacher';
+// const array = [1, 2, 3, 4, 5, 6];
+// const newObj = array.reduce((acc, item) => {
+//   acc[item] = item + 1;
 //   return acc;
 // }, {});
 // console.log(newObj);
