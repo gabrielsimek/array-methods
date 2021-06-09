@@ -22,9 +22,10 @@ export function arrayFindIndex(array, callback) {
   }
   return -1;
 }
+
+
 export function arrayReduce(array, callback, initialValue) {
-  
-  if(typeof initialValue === 'number' || initialValue === undefined){
+  if(typeof initialValue === 'number' || typeof initialValue === 'string' || initialValue === undefined){
     let accumulator;
     let i;
     if(initialValue !== undefined)  accumulator = initialValue;
@@ -34,19 +35,11 @@ export function arrayReduce(array, callback, initialValue) {
     }
     return accumulator;
   } 
+ 
   if(Array.isArray(initialValue)){
     const accumulator = initialValue;
     for(let i = 0; i < array.length; i++){
       accumulator[i] = callback(accumulator, array[i]);
-    }
-    return accumulator;
-  }
-  if(typeof(initialValue) === 'string') {
-    
-    let accumulator = initialValue;
-    for(let i = 0; i < array.length; i++){
-      accumulator =  callback(accumulator, array[i]);
-      console.log(accumulator);
     }
     return accumulator;
   }

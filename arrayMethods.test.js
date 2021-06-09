@@ -90,7 +90,6 @@ describe('arrayReduce', () => {
     const string = 'abc';
     const array = string.split('');
     const reducedValue = arrayReduce(array, (accumulator, item) => {
-      console.log(accumulator);
       return  item + accumulator;
     }, '') ;
     expect(reducedValue).toEqual('cba');
