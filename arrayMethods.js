@@ -6,9 +6,6 @@ export function arrayMap(array, callback) {
   }
   return newArray;
 }
-const array = [255, 0, 1, 'a', 'b', false, true, '', null, undefined, NaN];
-const filteredArray = array.filter(item => item);
-console.log(filteredArray);
 
 export function arrayFilter(array, callback) {
   const newArray = [];

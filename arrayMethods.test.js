@@ -32,3 +32,22 @@ describe('arrayFilter', () => {
 
   });
 });
+
+describe('arrayFindIndex', () => {
+  it('applies a function on each element in an array which returns the index of an item that meets a specified criteria', () => {
+    const array = [255, 0, 1, 'a', 'b', 'abc', 'def'];
+    const typesArray = arrayFindIndex(array, item => {
+      return item[0] === 'a';
+    });
+    
+    expect(typesArray).toEqual(3);
+  });
+  it('applies a function on each element in an array which returns the index of an item that meets a specified criteria or -1 if no item found', () => {
+    const array = [255, 0, 1, 'a', 'b', 'abc', 'def'];
+    const typesArray = arrayFindIndex(array, item => {
+      return item[0] === 'z';
+    });
+    
+    expect(typesArray).toEqual(-1);
+  });
+});
