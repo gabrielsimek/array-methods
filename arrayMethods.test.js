@@ -1,4 +1,4 @@
-import { arrayMap, arrayFilter, arrayFindIndex, arrayReduce } from './arrayMethods.js';
+import { arrayMap, arrayFilter, arrayFindIndex, arrayReduce, arrayEvery } from './arrayMethods.js';
 describe('arrayMap', () => {
   it('applies a function on each element in an array, returning a new array', () => {
     const array = [255, 0, 1, 'a', 'b'];
@@ -104,7 +104,7 @@ describe('arrayEvery', () => {
     const falseReturn = arrayEvery(falseArray, item => {
       if(item) return item;
     });
-    
+
     const trueReturn = arrayEvery(trueArray, item => {
       if(item) return item;
     });
