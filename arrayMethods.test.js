@@ -1,4 +1,4 @@
-import { arrayMap, arrayFilter } from './arrayMethods.js';
+import { arrayMap, arrayFilter, arrayFindIndex } from './arrayMethods.js';
 describe('arrayMap', () => {
   it('applies a function on each element in an array, returning a new array', () => {
     const array = [255, 0, 1, 'a', 'b'];
@@ -37,7 +37,7 @@ describe('arrayFindIndex', () => {
   it('applies a function on each element in an array which returns the index of an item that meets a specified criteria', () => {
     const array = [255, 0, 1, 'a', 'b', 'abc', 'def'];
     const typesArray = arrayFindIndex(array, item => {
-      return item[0] === 'a';
+      if(item[0] === 'a') return item;
     });
     
     expect(typesArray).toEqual(3);
@@ -47,7 +47,7 @@ describe('arrayFindIndex', () => {
     const typesArray = arrayFindIndex(array, item => {
       return item[0] === 'z';
     });
-    
+
     expect(typesArray).toEqual(-1);
   });
 });
