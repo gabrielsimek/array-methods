@@ -71,4 +71,11 @@ describe('arrayReduce', () => {
     expect(reducedValue).toEqual(267);
   });
 
+  it('applies a callback to every item in an array and keeps track of and returns a specified accumulated initialized as an array', () => {
+    const array = [255, 5, 5, 1, 1];
+    const reducedValue = arrayReduce(array, (accumulator, item) => {
+      return accumulator += (item * 2);
+    }, []) ;
+    expect(reducedValue).toEqual([510, 10, 10, 2, 2]);
+  });
 });
