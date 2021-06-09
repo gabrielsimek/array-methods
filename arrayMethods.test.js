@@ -78,4 +78,21 @@ describe('arrayReduce', () => {
     }, []) ;
     expect(reducedValue).toEqual([510, 10, 10, 2, 2]);
   });
+  it('applies a callback to every item in an array and keeps track of and returns a specified accumulated initialized as a string', () => {
+    const array = ['a', 'b', 'c', 'd', 'e'];
+    const reducedValue = arrayReduce(array, (accumulator, item) => {
+      return  accumulator + item;
+    }, '') ;
+    expect(reducedValue).toEqual('abcde');
+  });
+
+  it('reverses a string', () => {
+    const string = 'abc';
+    const array = string.split('');
+    const reducedValue = arrayReduce(array, (accumulator, item) => {
+      console.log(accumulator);
+      return  item + accumulator;
+    }, '') ;
+    expect(reducedValue).toEqual('cba');
+  });
 });
