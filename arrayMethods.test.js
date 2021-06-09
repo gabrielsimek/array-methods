@@ -94,6 +94,7 @@ describe('arrayReduce', () => {
     }, '') ;
     expect(reducedValue).toEqual('cba');
   });
+
   it('returns and object when arrayReduce is initialized as an object', () => {
     const arrayOfNames = ['Danny', 'Ryan', 'Marty'] ;
     
@@ -108,14 +109,14 @@ describe('arrayReduce', () => {
 describe('arrayEvery', () => {
   it('returns overall true if all applied callback return true', () => {
     const falseArray = [255, 0, 1, 'a', 'b', false, true, '', null, NaN, undefined, {}];
-    const trueArray = ['a', 1, true, []];
+    const trueArray = [5, 6, 7, 8];
 
     const falseReturn = arrayEvery(falseArray, item => {
       if(item) return item;
     });
 
     const trueReturn = arrayEvery(trueArray, item => {
-      if(item) return item;
+      if(item >= 5) return item;
     });
     
     expect(falseReturn).toEqual(false);

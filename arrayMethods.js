@@ -43,6 +43,14 @@ export function arrayReduce(array, callback, initialValue) {
     return accumulator;
   }
 
+  if(typeof initialValue === 'object'){
+    let accumulator = initialValue;
+    for(let i = 0; i < array.length; i++){
+      accumulator = callback(accumulator, array[i]);
+    }
+    return accumulator;
+  }
+
 
 }
 
@@ -53,9 +61,10 @@ export function arrayEvery(array, callback){
   return true;
 }
 
-const names = ['Danny', 'Ryan', 'Marty'];
-const newObj = names.reduce((acc, item) => {
-  acc[item] = 'teacher';
-  return acc;
-}, {});
-console.log(newObj);
+
+// const names = ['Danny', 'Ryan', 'Marty'];
+// const newObj = names.reduce((acc, item) => {
+//   acc[item] = 'teacher';
+//   return acc;
+// }, {});
+// console.log(newObj);
