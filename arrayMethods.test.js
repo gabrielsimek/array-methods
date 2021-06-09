@@ -95,3 +95,21 @@ describe('arrayReduce', () => {
     expect(reducedValue).toEqual('cba');
   });
 });
+
+describe('arrayEvery', () => {
+  it('returns overall true if all applied callback return true', () => {
+    const falseArray = [255, 0, 1, 'a', 'b', false, true, '', null, NaN, undefined, {}];
+    const trueArray = ['a', 1, true, []];
+
+    const falseReturn = arrayEvery(falseArray, item => {
+      if(item) return item;
+    });
+    
+    const trueReturn = arrayEvery(trueArray, item => {
+      if(item) return item;
+    });
+    
+    expect(falseReturn).toEqual(false);
+    expect(trueReturn).toEqual(true);
+  });
+});
